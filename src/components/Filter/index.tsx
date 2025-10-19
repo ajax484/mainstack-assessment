@@ -12,7 +12,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Calendar } from "../ui/calendar";
-import type { FilterType } from "@/typings";
+import type { FilterType, TransactionStatus, TransactionType } from "@/typings";
 import { useState } from "react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { format, subDays, startOfMonth, startOfDay, endOfDay } from "date-fns";
@@ -222,10 +222,10 @@ const Filter = ({
                       >
                         <Checkbox
                           checked={updatedFilters.transactionType.includes(
-                            item
+                            item as TransactionType
                           )}
                           onCheckedChange={() =>
-                            handleTransactionTypeChange(item)
+                            handleTransactionTypeChange(item as TransactionType)
                           }
                         />
                         <span className="text-sm capitalize">{item}</span>
@@ -260,10 +260,12 @@ const Filter = ({
                         >
                           <Checkbox
                             checked={updatedFilters.transactionStatus.includes(
-                              status
+                              status as TransactionStatus
                             )}
                             onCheckedChange={() =>
-                              handleTransactionStatusChange(status)
+                              handleTransactionStatusChange(
+                                status as TransactionStatus
+                              )
                             }
                           />
                           <span className="text-sm capitalize">{status}</span>

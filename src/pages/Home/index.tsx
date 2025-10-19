@@ -1,6 +1,6 @@
 import { useFetch } from "@/hooks/use-fetch";
 import { cn } from "@/lib/utils";
-import type { FilterType, PaymentData, WalletData } from "@/typings";
+import type { FilterType, PaymentData, TransactionType, WalletData } from "@/typings";
 import {
   ArrowDownLeftIcon,
   ArrowUpRightIcon,
@@ -48,7 +48,9 @@ function Home() {
       if (filters.transactionType.length > 0) {
         const transactionType =
           transaction.type === "deposit" ? "Get Tipped" : "Withdrawals";
-        if (!filters.transactionType.includes(transactionType)) {
+        if (
+          !filters.transactionType.includes(transactionType as TransactionType)
+        ) {
           return false;
         }
       }

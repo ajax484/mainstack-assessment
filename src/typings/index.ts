@@ -33,16 +33,18 @@ export interface WalletData {
   ledger_balance: number;
 }
 
+export type TransactionType =
+  | "item"
+  | "get tipped"
+  | "withdrawals"
+  | "chargebacks"
+  | "cashbacks";
+
+export type TransactionStatus = "successful" | "failed" | "pending";
+
 export type FilterType = {
   fromDate: Date | undefined;
   toDate: Date | undefined;
-  transactionType: (
-    | "item"
-    | "get tipped"
-    | "withdrawals"
-    | "chargebacks"
-    | "cashbacks"
-    | "refer & earn"
-  )[];
-  transactionStatus: ("successful" | "failed" | "pending")[];
+  transactionType: TransactionType[];
+  transactionStatus: TransactionStatus[];
 };
