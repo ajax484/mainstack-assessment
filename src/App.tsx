@@ -1,7 +1,6 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Home from "@/pages/Home";
-
 
 const App: React.FC = () => {
   return (
@@ -9,6 +8,10 @@ const App: React.FC = () => {
       <Navbar />
       <Routes>
         <Route path="/revenue" element={<Home />} />
+
+        <Route path="/" element={<Navigate to="/revenue" replace />} />
+
+        <Route path="*" element={<Navigate to="/revenue" replace />} />
       </Routes>
     </BrowserRouter>
   );
