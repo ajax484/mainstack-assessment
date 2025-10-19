@@ -48,16 +48,13 @@ function Home() {
       if (filters.transactionType.length > 0) {
         const transactionType =
           transaction.type === "deposit" ? "Get Tipped" : "Withdrawals";
-        if (!filters.transactionType.includes(transactionType as any)) {
+        if (!filters.transactionType.includes(transactionType)) {
           return false;
         }
       }
 
-      if (
-        filters.transactionStatus.length > 0 &&
-        !filters.transactionStatus.includes("all")
-      ) {
-        if (!filters.transactionStatus.includes(transaction.status as any)) {
+      if (filters.transactionStatus.length > 0) {
+        if (!filters.transactionStatus.includes(transaction.status)) {
           return false;
         }
       }
@@ -91,8 +88,7 @@ function Home() {
       filters.fromDate ||
       filters.toDate ||
       filters.transactionType.length > 0 ||
-      (filters.transactionStatus.length > 0 &&
-        !filters.transactionStatus.includes("all"))
+      filters.transactionStatus.length > 0
     );
   }, [filters]);
 

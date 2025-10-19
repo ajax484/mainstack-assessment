@@ -34,11 +34,11 @@ export const NAVBAR_LINKS: {
     icon: "./images/group.svg",
     href: "/CRM",
   },
-  {
-    name: "Apps",
-    icon: "./images/widgets.svg",
-    href: "/apps",
-  },
+//   {
+//     name: "Apps",
+//     icon: "./images/widgets.svg",
+//     href: "/apps",
+//   },
 ];
 
 export const SECONDARY_LINKS: {
